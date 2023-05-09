@@ -15,20 +15,34 @@ const modelViewer = document.querySelector('model-viewer');
 modelViewer.addEventListener('progress', onProgress);
 
 // Start the rotation
-let direction = 0.2; // change this value to adjust rotation speed
+let direction = 0.1; // change this value to adjust rotation speed
 let angle = 0;
+let rotating = true;
 
 function rotate() {
+  if (!rotating) {
+    requestAnimationFrame(rotate);
+    return;
+  }
+  
   const modelViewer = document.querySelector('model-viewer');
   angle += direction;
-  if (angle > 60) {
-    direction = -0.2;
-  } else if (angle < -60) {
-    direction = 0.2;
+  if (angle > 50) {
+    direction = -0.1;
+  } else if (angle < -50) {
+    direction = 0.1;
   }
   modelViewer.setAttribute('camera-orbit', `${angle}deg 75deg auto`);
   requestAnimationFrame(rotate);
 }
+
+modelViewer.addEventListener('pointerdown', () => {
+  rotating = false;
+});
+
+modelViewer.addEventListener('pointerup', () => {
+  rotating = true;
+});
 
 window.addEventListener('load', (event) => {
   const modelViewer = document.querySelector('model-viewer');
@@ -44,10 +58,3 @@ window.addEventListener('load', (event) => {
   // Start the rotation
   rotate();
 });
-
-
-
-
-
-
-
