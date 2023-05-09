@@ -15,16 +15,16 @@ const modelViewer = document.querySelector('model-viewer');
 modelViewer.addEventListener('progress', onProgress);
 
 // Start the rotation
-let direction = 0.1; // change this value to adjust rotation speed
+let direction = 0.2; // change this value to adjust rotation speed
 let angle = 0;
 
 function rotate() {
   const modelViewer = document.querySelector('model-viewer');
   angle += direction;
-  if (angle > 50) {
-    direction = -0.1;
-  } else if (angle < -50) {
-    direction = 0.1;
+  if (angle > 60) {
+    direction = -0.2;
+  } else if (angle < -60) {
+    direction = 0.2;
   }
   modelViewer.setAttribute('camera-orbit', `${angle}deg 75deg auto`);
   requestAnimationFrame(rotate);
