@@ -23,3 +23,19 @@ window.addEventListener('load', (event) => {
   });
   modelViewer.dispatchEvent(click);
 });
+let direction = 1;
+let angle = 0;
+
+function rotate() {
+  const modelViewer = document.querySelector('model-viewer');
+  angle += direction;
+  if (angle > 50) {
+    direction = -1;
+  } else if (angle < -50) {
+    direction = 1;
+  }
+  modelViewer.cameraOrbit = `${angle}deg 75deg auto`;
+  requestAnimationFrame(rotate);
+}
+
+requestAnimationFrame(rotate);
