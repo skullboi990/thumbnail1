@@ -10,4 +10,16 @@ const onProgress = (event) => {
     progressBar.classList.remove('hide');
   }
 };
+
 document.querySelector('model-viewer').addEventListener('progress', onProgress);
+
+window.addEventListener('load', (event) => {
+  const modelViewer = document.querySelector('model-viewer');
+  // Dispatch synthetic click event
+  const click = new MouseEvent('click', {
+    view: window,
+    bubbles: true,
+    cancelable: true
+  });
+  modelViewer.dispatchEvent(click);
+});
