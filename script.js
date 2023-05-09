@@ -44,7 +44,7 @@ window.addEventListener('load', (event) => {
   // Start the rotation
   rotate();
 });
-You can adjust the value of direction to fine-tune the rotation speed to your liking. Remember, the smaller the value, the slower the rotation.
+
 
 
 
