@@ -35,11 +35,11 @@ function rotate() {
   requestAnimationFrame(rotate);
 }
 
-modelViewer.addEventListener('focus', () => {
+document.addEventListener('pointerdown', () => {
   rotating = false;
 });
 
-modelViewer.addEventListener('blur', () => {
+document.addEventListener('pointerup', () => {
   rotating = true;
 });
 
