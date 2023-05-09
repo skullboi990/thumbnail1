@@ -9,7 +9,7 @@
   </head>
   <body>
     <!-- <model-viewer> HTML element -->
-    <model-viewer src="reversed board.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls interaction-prompt="none" poster="poster.webp" shadow-intensity="1" autoplay min-camera-orbit="-56deg 63deg auto" max-camera-orbit="58deg 98deg auto" camera-target="auto auto auto">
+    <model-viewer id="my-model" src="reversed board.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls interaction-prompt="none" poster="poster.webp" shadow-intensity="1" autoplay min-camera-orbit="-56deg 63deg auto" max-camera-orbit="58deg 98deg auto">
       <div class="progress-bar hide" slot="progress-bar">
           <div class="update-bar"></div>
       </div>
@@ -23,5 +23,12 @@
     <script src="script.js"></script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
+
+    <script>
+      var modelViewer = document.querySelector('#my-model');
+      modelViewer.oncontextmenu = function(e) {
+          e.preventDefault();
+      };
+    </script>
   </body>
 </html>
