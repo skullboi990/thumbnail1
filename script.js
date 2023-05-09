@@ -25,7 +25,6 @@ function rotate() {
     return;
   }
   
-  const modelViewer = document.querySelector('model-viewer');
   angle += direction;
   if (angle > 50) {
     direction = -0.1;
@@ -36,11 +35,11 @@ function rotate() {
   requestAnimationFrame(rotate);
 }
 
-modelViewer.addEventListener('pointerdown', () => {
+modelViewer.addEventListener('focus', () => {
   rotating = false;
 });
 
-modelViewer.addEventListener('pointerup', () => {
+modelViewer.addEventListener('blur', () => {
   rotating = true;
 });
 
