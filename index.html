@@ -6,27 +6,40 @@
     <meta name="description" content="&lt;model-viewer&gt; template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" href="./styles.css" rel="stylesheet"/>
+    <style>
+      #model-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+    </style>
   </head>
   <body>
-    <!-- <model-viewer> HTML element -->
-    <model-viewer id="my-model" src="reversed board.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls interaction-prompt="none" poster="poster.webp" shadow-intensity="1" autoplay min-camera-orbit="-56deg 63deg auto" max-camera-orbit="58deg 98deg auto">
-      <div class="progress-bar hide" slot="progress-bar">
-          <div class="update-bar"></div>
-      </div>
-      <button slot="ar-button" id="ar-button">
-          View in your space
-      </button>
-      <div id="ar-prompt">
-          <img src="ar_hand_prompt.png">
-      </div>
-    </model-viewer>  
+    <div id="model-container" style="position: relative;">
+      <!-- <model-viewer> HTML element -->
+      <model-viewer id="my-model" src="reversed board.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls interaction-prompt="none" poster="poster.webp" shadow-intensity="1" autoplay min-camera-orbit="-56deg 63deg auto" max-camera-orbit="58deg 98deg auto">
+        <div class="progress-bar hide" slot="progress-bar">
+            <div class="update-bar"></div>
+        </div>
+        <button slot="ar-button" id="ar-button">
+            View in your space
+        </button>
+        <div id="ar-prompt">
+            <img src="ar_hand_prompt.png">
+        </div>
+      </model-viewer>
+      <div id="model-overlay"></div>
+    </div>
     <script src="script.js"></script>
     <!-- Loads <model-viewer> for browsers: -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
 
     <script>
-      var modelViewer = document.querySelector('#my-model');
-      modelViewer.oncontextmenu = function(e) {
+      var modelOverlay = document.querySelector('#model-overlay');
+      modelOverlay.oncontextmenu = function(e) {
           e.preventDefault();
       };
     </script>
