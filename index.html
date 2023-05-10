@@ -6,10 +6,16 @@
     <meta name="description" content="&lt;model-viewer&gt; template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" href="./styles.css" rel="stylesheet"/>
+    <style>
+      model-viewer {
+        background-color: transparent !important;
+        --poster-color: transparent !important;
+      }
+    </style>
   </head>
   <body>
     <!-- <model-viewer> HTML element -->
-    <model-viewer src="reversed board.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls interaction-prompt="none" poster="poster.webp" shadow-intensity="1" autoplay min-camera-orbit="-56deg 63deg auto" max-camera-orbit="58deg 98deg auto" background-color="rgba(0,0,0,0)">
+    <model-viewer src="reversed board.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls interaction-prompt="none" poster="poster.webp" shadow-intensity="1" autoplay min-camera-orbit="-56deg 63deg auto" max-camera-orbit="58deg 98deg auto">
       <div class="progress-bar hide" slot="progress-bar">
           <div class="update-bar"></div>
       </div>
